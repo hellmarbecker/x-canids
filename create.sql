@@ -26,7 +26,7 @@ CREATE TABLE xcanids.signal(
 ENGINE = MergeTree
 ORDER BY arbitration_id;
 
-CREATE TABLE arbitration_id(
+CREATE TABLE xcanids.arbitration_id(
     arbitration_id Int64,
     AID_HEX String,
     Name String,
