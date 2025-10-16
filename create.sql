@@ -40,3 +40,22 @@ CREATE TABLE xcanids.arbitration_id(
 ENGINE = MergeTree
 ORDER BY arbitration_id;
 
+CREATE DICTIONARY xcanids.dict_arbitration_id(
+    arbitration_id Int64,
+    AID_HEX String,
+    Name String,
+    `#signals` String,
+    `#messages` Int64,
+    `#uniq_data` Int64,
+    interval_mean Float64,
+    interval_std Float64,
+    uniq_DLC String
+)
+PRIMARY KEY arbitration_id
+SOURCE(CLICKHOUSE(
+    TABLE 'arbitration_id' DB 'xcanids' USER 'default' PASSWORD '<my password>'
+))
+LAYOUT(HASHED())
+LIFETIME(3600);
+
+SELECT * from xcanids.dict_arbitration_id;
