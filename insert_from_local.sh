@@ -14,5 +14,5 @@ done
 
 
 ./clickhouse local -q "SELECT * from file('./arbitration_id.csv', CSVWithNames)"  --format Native | \
-./clickhouse  client --host mqvsbo7uzs.eu-central-1.aws.clickhouse.cloud --port 9440 --user default --password 'PASSWORD' -q 'INSERT INTO arbitration_id FORMAT Native'
+./clickhouse  client --host mqvsbo7uzs.eu-central-1.aws.clickhouse.cloud --port 9440 --user default --password 'PASSWORD' -q 'INSERT INTO xcanids.arbitration_id FORMAT Native'
 
